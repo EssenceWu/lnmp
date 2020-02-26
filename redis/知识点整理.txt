@@ -1,0 +1,74 @@
+常用数据类型
+string hashmap list set zset 
+
+高级数据类型
+bitmap hyperloglog geo
+setbit getbit bitcount 
+pfadd pfcount pfmerge 
+geoadd geopos geodist georadius georadiusbymember geohash
+
+事务 
+watch multi exec discard
+
+持久化 
+RDB
+命令: save bgsave
+配置: save second changes
+     stop-writes-on-bgsave-error 备份出错是否终止
+     dbfilename 备份数据文件名
+     rdbchecksum 备份数据校验
+     rdbcompression 开启数据压缩
+重启: shutdown save
+
+AOF
+AOF -> 数据缓存区 -> .aof
+配置: appendonly 开启AOF
+     appendfsync 备份策略（always everysec no）
+     appendfilename 备份数据文件名
+重写规则: 
+     命令: bgrewriteof 
+     配置: auto-aof-rewrite-min-size size
+          auto-aof-rewrite-percentage percent
+
+删除策略 定时删除 惰性删除 定期删除
+逐出策略 no-enviction 开启逐出
+       maxmemory 默认0不限制 配置50%以上
+       maxmemory-samples 删除数量
+       maxmemory-policy（volatile-lru volatile-lfu volatile-ttl volatile-random）
+
+集群部署 
+主从复制 
+    工作流程: 1)建立连接阶段 2)数据同步阶段 3）命令传播阶段
+    命令: replicaof host port
+         --replicaof host port
+         replicaof no one
+    配置: replicaof host port
+         主授权: requirepss 从授权: masterauth
+         repl-backlog-size 主从复制积压缓存区
+         repl-timeout 释放slave
+         repl-ping-slave-period 主从ping频率
+         slave-server-stale-data 关闭slave
+         min-slaves-to-write slave数量
+         min-slaves-max-lag 最小延迟时间
+哨兵模式 
+    工作流程: 1)监控阶段 2）通知阶段 3）故障转移阶段
+    redis-sentinel sentinel配置文件
+
+cluster集群
+    命令: ./src/redis-cli --cluster create 127.0.0.1:6379 --cluster-replicas 1
+    配置:  cluster-enabled 开启cluster
+          cluster-config-file cluster配置文件
+          cluster-node-timeout cluster超时时间
+
+
+
+
+
+
+
+
+
+
+
+
+

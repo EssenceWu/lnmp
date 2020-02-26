@@ -1,0 +1,9 @@
+问题一:
+CROSSSLOT Keys in request don’t hash to the same slot
+解决方案: {hash}:uniqueKey
+
+问题二:
+shutdown save 保存runid和offset
+
+问题三:
+keys优化 -> scan分页处理

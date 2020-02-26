@@ -1,0 +1,6 @@
+配置组成: 
+    main（全局设置）、server（主机设置）、upstream（负载均衡服务器设置）和 location（URL匹配特定位置的设置）。
+    main块设置的指令将影响其他所有设置；
+    server块的指令主要用于指定主机和端口；
+    upstream指令主要用于负载均衡，设置一系列的后端服务器；
+    location块用于匹配网页位置。

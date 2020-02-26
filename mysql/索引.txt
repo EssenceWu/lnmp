@@ -1,0 +1,34 @@
+1.索引分类 单值索引 全文索引 组合索引
+2.explain 分析SQL执行过程索引使用情况
+    id 优先执行顺序随着id增大
+    selet_type simple primary subquery derived union union result
+    table -- 表名
+    type NULL sytem const eq_ref ref range index all
+    possible keys 
+    key
+    key len
+    rows 扫描的行数
+    extra using filsort using temporary using index
+3.profile 分析SQL之行过程耗时
+    select @@have_profiling; 查询是否支持
+    select @@profiling; 查询是否开启
+    set profiling = 1; 开启profile
+    show profile for query id; 查询过程耗时情况
+4.trace过程日志追踪
+5.索引基本常识
+    1.全值匹配索引生效
+    2.最左前缀法则
+    3.范围查询后面使用范围索引
+    4.索引列运算索引失效
+    5.字符串不加单引号索引失效
+    6.尽量访问索引字段
+    7.or 后面无索引则索引失效
+    8.like %XXX 不执行索引
+    9.is null is not null 数据少则走索引
+    10.in使用索引 not in不使用索引
+6.索引使用查看命令
+    show global status like 'Handler_read%'
+
+
+    
+    

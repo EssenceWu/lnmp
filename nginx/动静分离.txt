@@ -1,0 +1,8 @@
+路径构成:
+    url路径: root路径 + location路径 + 静态文件名
+配置项:
+    autoindex on;
+root和alias的区别:
+    root与location拼接,alias必须放在location中且必须以/结尾。
+
+

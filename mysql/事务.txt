@@ -1,0 +1,15 @@
+1.事务的特点
+    原子性、一致性、隔离性、持久性
+3.隔离级别
+    未提交读（read uncommitted） 
+    已提交读（read committed） 
+    可重复读（repeatable read)
+    串行化（serializable)
+4.查看隔离级别 
+    select @@transaction_isolation;
+5.设置隔离级别
+    set session/global transaction isolation level xxx;
+6.锁机制
+    基本常识 行级锁 表级锁 索引对锁的影响
+    悲观锁 select ... for update
+    乐观锁 update version = version + 1 where version = xxx;

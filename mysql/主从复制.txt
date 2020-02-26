@@ -1,0 +1,27 @@
+1.主从配置
+    主数据库: 
+        server-id = xxx 
+        log_bin = xxx.log
+        binlog_format = STATEMENT/ROW/MIXED
+    从数据库: 
+        server-id = xxx
+2.主从命令
+    主数据库:
+        grant replication slave on *.* to 'xxx'@'xxx' identified by 'xxx';
+        grant select on *.* to 'xxx'@'xxx'identified by 'xxx';
+        grant all privileges on *.* to xxx@'xxx'identified by 'xxx';
+        flush privileges;
+        show master status\G;
+    从数据库:
+        change master to 
+        master_host = 'xxx', 
+        master_user = 'xxx', 
+        master_password = 'xxx', 
+        master_port = xxx, 
+        master_log_file = 'xxx', 
+        master_log_pos = xxx;
+        show slave status\G;
+        start slave;
+3.主主配置
+        auto-increment-increment = 2
+        auto-increment-offset = 1

@@ -1,0 +1,2 @@
+1.忘记root密码?
+    mysqld_safe --skip-grant-tables

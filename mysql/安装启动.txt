@@ -1,0 +1,12 @@
+1.初始化数据库
+    mysqld --defaults-file=xxx.cnf --basedir=xxx --datadir=xxx --user=xxx --initialize-insecure 
+2.启动数据库
+    mysqld_safe --defaults-file=xxx.cnf --basedir=xxx --datadir=xxx --user=xxx
+3.配置项.cnf
+    [mysqld]
+    port=3306
+    socket=mysql.sock
+    pid-file=xxx.pid
+    basedir=xxx
+    datadir=xxx
+    tmpdir=xxx

@@ -1,0 +1,11 @@
+1.分配策略: 
+    轮询策略（默认策略)
+    权重策略（weight=xxx)
+    ip哈希 (ip_hash)
+    fair 响应时间策略
+2.配置文件:
+    upstream server_name {
+    }
+    location ~ {
+        proxy_pass   http://server_name;
+    }
